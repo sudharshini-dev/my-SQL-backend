@@ -1,0 +1,99 @@
+Enter password: **************
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 10
+Server version: 8.0.46 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2026, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.01 sec)
+
+mysql> create database sec-11;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-11' at line 1
+mysql> create database sec-11;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-11' at line 1
+mysql> create database sec_11;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use sec_11;
+Database changed
+mysql> create table student(strollno varchar(10),
+    -> sname char(15),
+    -> age int,
+    -> marks float
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> show tables;
++------------------+
+| Tables_in_sec_11 |
++------------------+
+| student          |
++------------------+
+1 row in set (0.00 sec)
+
+mysql> insert into student values('2520090227',''sudharshini',19,96.4);
+    '> insert into student values('2520090227','sudharshini',19.98.5);
+    '>
+    '>
+    '> ^C
+mysql> insert into student values('252009002','sudharshini',19,96.5);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into student values('252008005','Ramu',19,93.5);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into student values('252009005','Gopi',20,98.5);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into student values('2520090227','Rani',19,90.8);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into student values('252009008','Sam',19,91.8);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from student;
++------------+-------------+------+-------+
+| strollno   | sname       | age  | marks |
++------------+-------------+------+-------+
+| 252009002  | sudharshini |   19 |  96.5 |
+| 252008005  | Ramu        |   19 |  93.5 |
+| 252009005  | Gopi        |   20 |  98.5 |
+| 2520090227 | Rani        |   19 |  90.8 |
+| 252009008  | Sam         |   19 |  91.8 |
++------------+-------------+------+-------+
+5 rows in set (0.00 sec)
+
+mysql> desc student;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| strollno | varchar(10) | YES  |     | NULL    |       |
+| sname    | char(15)    | YES  |     | NULL    |       |
+| age      | int         | YES  |     | NULL    |       |
+| marks    | float       | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> rename table student to std
+    -> ^C
+mysql> rename table student to std;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> desc student;
+ERROR 1146 (42S02): Table 'sec_11.student' doesn't exist
+mysql>
